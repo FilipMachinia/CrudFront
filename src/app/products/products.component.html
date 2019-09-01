@@ -1,0 +1,51 @@
+<h1 class="h1">Number plate list</h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
+  <table mat-table #plateTable fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource"
+         class="mat-elevation-z1">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Owner name</th>
+      <td mat-cell *matCellDef="let product"> {{product.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="plate">
+      <th mat-header-cell *matHeaderCellDef>Number plate</th>
+      <td mat-cell *matCellDef="let product"> {{product.plate}}</td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button (click)="editProduct(product)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button (click)="deleteProduct(product)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
+
+  <div>
+    <h2>Create new Product</h2>
+    <label>Owner name
+      <input type="text" [(ngModel)]="selectedProduct.name">
+    </label>
+    <label>Number plate
+      <input type="text" [(ngModel)]="selectedProduct.plate">
+    </label>
+    <button mat-flat-button color="primary" (click)="createProduct()">Create</button>
+    <button mat-flat-button color="primary" (click)="clearProduct()">Reset</button>
+  </div>
+
+  <div class="loading" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

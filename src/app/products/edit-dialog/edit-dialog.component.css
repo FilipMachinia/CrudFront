@@ -1,0 +1,11 @@
+label, input {
+  display: block;
+}
+
+label {
+  margin-bottom: 1rem;
+}
+
+button {
+  margin: 5px;
+}

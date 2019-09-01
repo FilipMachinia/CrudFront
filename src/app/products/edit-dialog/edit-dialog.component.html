@@ -1,0 +1,13 @@
+<div>
+  <label>Owner name
+    <input type="text" [(ngModel)]="data.name">
+  </label>
+
+  <label>Number plate
+    <input type="text" [(ngModel)]="data.plate">
+  </label>
+
+  <button mat-flat-button color="primary" (click)="editProduct()">Edit</button>
+  <button mat-flat-button color="primary" (click)="cancelEdit()">Cancel</button>
+
+</div>

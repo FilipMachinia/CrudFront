@@ -11,8 +11,8 @@ import {EditDialogComponent} from './edit-dialog/edit-dialog.component';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  @ViewChild('plateTable') table: MatTable<any>;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild('plateTable', { static: true }) table: MatTable<any>;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource<Product[]>();
   displayedColumns: string[] = ['name', 'plate', 'edit', 'delete'];
   loading = false;

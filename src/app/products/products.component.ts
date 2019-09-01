@@ -37,12 +37,12 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteProduct(product: any) {
-    this.platesService.deletePlate(product).subscribe(res => {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+      data: product
+    });
+    dialogRef.afterClosed().subscribe(res => {
       this.getAllPlates();
-
-      this.dialog.open(DeleteDialogComponent, {
-        width: '250px'
-      });
     });
   }
 

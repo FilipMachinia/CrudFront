@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Product} from './product';
 import {NumberPlatesService} from './number-plates.service';
-import {MatDialog, MatSort, MatTable, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/material';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {EditDialogComponent} from './edit-dialog/edit-dialog.component';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -14,6 +14,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class ProductsComponent implements OnInit {
   @ViewChild('plateTable', { static: true }) table: MatTable<any>;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   dataSource = new MatTableDataSource<Product[]>();
   displayedColumns: string[] = ['name', 'plate', 'edit', 'delete'];
   loading = false;
@@ -29,8 +31,9 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
     this.getAllPlates();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   editProduct(product: any) {
@@ -69,9 +72,13 @@ export class ProductsComponent implements OnInit {
   getAllPlates() {
     this.loading = true;
     this.platesService.getPlates().subscribe(res => {
-      this.dataSource = res;
+      this.dataSource.data = res;
       this.table.renderRows();
       this.loading = false;
     });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

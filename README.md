@@ -9,6 +9,7 @@ The app uses:
 * RxJS
 * Responsive design - on mobile table view changes to column
 * British car plate validation in format: AA11AAA
+* loading spinner for all backend actions
 
 ## Set up
 To run the app do the following for both front and back end:

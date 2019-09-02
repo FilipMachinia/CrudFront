@@ -5,8 +5,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import {
   MatButtonModule, MatDialogModule,
-  MatDividerModule,
-  MatIconModule,
+  MatDividerModule, MatFormFieldModule,
+  MatIconModule, MatInputModule,
   MatMenuModule, MatPaginatorModule,
   MatProgressSpinnerModule, MatSortModule,
   MatTableModule,
@@ -47,7 +47,9 @@ import { EditDialogComponent } from './products/edit-dialog/edit-dialog.componen
     FormsModule,
     MatPaginatorModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   entryComponents: [DeleteDialogComponent, EditDialogComponent],
   providers: [NumberPlatesService],

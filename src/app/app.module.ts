@@ -14,7 +14,7 @@ import {
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -47,6 +47,7 @@ import { EditDialogComponent } from './products/edit-dialog/edit-dialog.componen
     FormsModule,
     MatPaginatorModule,
     MatSortModule,
+    ReactiveFormsModule
   ],
   entryComponents: [DeleteDialogComponent, EditDialogComponent],
   providers: [NumberPlatesService],

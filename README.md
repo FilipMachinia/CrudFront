@@ -7,6 +7,8 @@ The app uses:
 * NodeJS with data saved in .json
 * Angular Material
 * RxJS
+* Responsive design - on mobile table view changes to column
+* British car plate validation in format: AA11AAA
 
 ## Set up
 To run the app do the following for both front and back end:

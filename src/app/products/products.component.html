@@ -33,17 +33,17 @@
 
   <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
 
-  <div>
+  <form [formGroup]="selectedProduct" (ngSubmit)="createProduct(selectedProduct)">
     <h2>Create new Product</h2>
     <label>Owner name
-      <input type="text" [(ngModel)]="selectedProduct.name">
+      <input type="text" formControlName="name" placeholder="Your name">
     </label>
     <label>Number plate
-      <input type="text" [(ngModel)]="selectedProduct.plate">
+      <input type="text" formControlName="plate" placeholder="Car plate like AA11AAA">
     </label>
-    <button mat-flat-button color="primary" (click)="createProduct()">Create</button>
+    <button mat-flat-button color="primary" type="submit">Create</button>
     <button mat-flat-button color="primary" (click)="clearProduct()">Reset</button>
-  </div>
+  </form>
 
   <div class="loading" *ngIf="loading">
     <mat-spinner></mat-spinner>

@@ -51,11 +51,11 @@ describe('ProductsComponent', () => {
   });
 
   it('form invalid when empty', () => {
-    expect(component.selectedProduct.valid).toBeFalsy();
+    expect(component.carOwnerForm.valid).toBeFalsy();
   });
 
   it('name field validity', () => {
-    let name = component.selectedProduct.controls.name;
+    let name = component.carOwnerForm.controls.name;
     expect(name.valid).toBeFalsy();
 
     name.setValue('');
@@ -69,7 +69,7 @@ describe('ProductsComponent', () => {
   });
 
   it('plate field validity', () => {
-    let plate = component.selectedProduct.controls.plate;
+    let plate = component.carOwnerForm.controls.plate;
     expect(plate.valid).toBeFalsy();
 
     plate.setValue('');

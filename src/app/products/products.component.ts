@@ -19,11 +19,11 @@ export class ProductsComponent implements OnInit {
   dataSource = new MatTableDataSource<Product[]>();
   displayedColumns: string[] = ['name', 'plate', 'edit', 'delete'];
   loading = false;
-  // selectedProduct: Product = new Product();
+  // carOwnerForm: Product = new Product();
   nameValidator = '^[A-Za-z]+$';
   // 2 letters 2 numbers and 3 letters, read more on https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_the_United_Kingdom
   britishCarPlateValidator = '^[A-Za-z]{2}[0-9]{2}[A-Za-z]{3}$';
-  selectedProduct = new FormGroup({
+  carOwnerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern(this.nameValidator)]),
     plate: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern(this.britishCarPlateValidator)])
   });
@@ -57,12 +57,16 @@ export class ProductsComponent implements OnInit {
   }
 
   clearProduct() {
-    this.selectedProduct.reset();
+    this.carOwnerForm.reset();
+    /* https://github.com/angular/components/issues/4190 */
+    Object.keys(this.carOwnerForm.controls).forEach(key => {
+      this.carOwnerForm.controls[key].setErrors(null);
+    });
   }
 
-  createProduct(selectedProduct) {
-    if (selectedProduct.valid) {
-      this.platesService.addPlate({name: this.selectedProduct.value.name, plate: this.selectedProduct.value.plate}).subscribe(res => {
+  createProduct(carOwnerFrm) {
+    if (carOwnerFrm.valid) {
+      this.platesService.addPlate({name: this.carOwnerForm.value.name, plate: this.carOwnerForm.value.plate}).subscribe(res => {
         this.getAllPlates();
         this.clearProduct();
       });

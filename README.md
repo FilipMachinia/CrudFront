@@ -1,5 +1,6 @@
 # Crud Front end
 ![image](src/assets/screen.png)
+![image](src/assets/screen2.png)
 This is basic Crud app (front end only). For back end please go to `https://github.com/FilipMachinia/CrudBack`.
 
 The app uses:

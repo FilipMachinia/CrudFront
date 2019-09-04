@@ -2,8 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductsComponent } from './products.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatDialogModule, MatDividerModule, MatIconModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
+import {
+  MatDialogModule,
+  MatDividerModule, MatFormFieldModule,
+  MatIconModule, MatInputModule, MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -20,7 +28,12 @@ describe('ProductsComponent', () => {
         MatDividerModule,
         MatProgressSpinnerModule,
         HttpClientModule,
-        MatDialogModule
+        MatDialogModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatPaginatorModule,
+        MatInputModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();
@@ -42,33 +55,37 @@ describe('ProductsComponent', () => {
   });
 
   it('name field validity', () => {
-    let name = component.selectedProduct.controls['name'];
+    let name = component.selectedProduct.controls.name;
     expect(name.valid).toBeFalsy();
 
-    name.setValue("");
+    name.setValue('');
     expect(name.hasError('required')).toBeTruthy();
 
-    name.setValue("A");
+    name.setValue('A');
     expect(name.errors.minlength).toBeTruthy();
 
-    name.setValue("John");
-    expect(name.errors.minlength).toBeTruthy();
+    name.setValue('John');
+    expect(name.invalid).toBeFalsy();
   });
 
   it('plate field validity', () => {
-    let plate = component.selectedProduct.controls['plate'];
+    let plate = component.selectedProduct.controls.plate;
     expect(plate.valid).toBeFalsy();
 
-    name.setValue("");
+    plate.setValue('');
     expect(plate.hasError('required')).toBeTruthy();
 
-    name.setValue("AA");
+    plate.setValue('AA');
     expect(plate.errors).toBeTruthy();
 
-    name.setValue("AA11");
+    plate.setValue('AA11');
     expect(plate.errors).toBeTruthy();
 
-    name.setValue("AA11AAA");
+    plate.setValue('AA11AAA');
     expect(plate.errors).toBeFalsy();
+  });
+
+  it('initialise table', () => {
+    expect(component.dataSource.data).toBeTruthy();
   });
 });

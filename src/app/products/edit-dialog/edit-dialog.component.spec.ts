@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditDialogComponent } from './edit-dialog.component';
+import {FormsModule} from '@angular/forms';
+import {MatDialogModule, MatDialogRef} from '@angular/material';
+import {NumberPlatesService} from '../number-plates.service';
 
 describe('EditDialogComponent', () => {
   let component: EditDialogComponent;
@@ -8,7 +11,14 @@ describe('EditDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditDialogComponent ]
+      declarations: [ EditDialogComponent ],
+      providers: [
+        NumberPlatesService
+      ],
+      imports: [
+        FormsModule,
+        MatDialogModule
+      ]
     })
     .compileComponents();
   }));

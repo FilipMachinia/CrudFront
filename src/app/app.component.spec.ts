@@ -24,10 +24,8 @@ describe('AppComponent', () => {
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    let component = fixture.componentInstance;
-
-
     fixture.detectChanges();
-    expect(component.title).toContain('Crud App');
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div').textContent).toContain('HomeNumber plates');
   });
 });

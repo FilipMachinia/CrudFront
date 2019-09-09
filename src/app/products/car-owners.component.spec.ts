@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ProductsComponent} from './products.component';
+import {CarOwnersComponent} from './car-owners.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatDialogModule,
@@ -16,13 +16,13 @@ import {NumberPlatesService} from './number-plates.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 describe('ProductsComponent', () => {
-  let component: ProductsComponent;
-  let fixture: ComponentFixture<ProductsComponent>;
+  let component: CarOwnersComponent;
+  let fixture: ComponentFixture<CarOwnersComponent>;
   let compiled;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductsComponent],
+      declarations: [CarOwnersComponent],
       imports: [
         ReactiveFormsModule,
         FormsModule,
@@ -45,7 +45,7 @@ describe('ProductsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductsComponent);
+    fixture = TestBed.createComponent(CarOwnersComponent);
     component = fixture.componentInstance;
     component.ngOnInit();
     fixture.detectChanges();
@@ -125,7 +125,7 @@ describe('ProductsComponent', () => {
   describe('test table', () => {
     it('initialise table', () => {
       expect(component.dataSource.data).toBeTruthy();
-      expect(compiled.querySelector('h1').textContent).toContain('Number plate list');
+      expect(compiled.querySelector('h1').textContent).toContain('Car owner list');
       expect(compiled.querySelector('table').textContent).toContain('Owner nameNumber plateEditDelete');
     });
   });

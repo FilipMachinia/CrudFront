@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {NumberPlatesService} from '../number-plates.service';
-import {Product} from '../product';
+import {CarOwner} from '../../models/carOwner';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -11,7 +11,7 @@ import {Product} from '../product';
 export class DeleteDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Product,
+              @Inject(MAT_DIALOG_DATA) public data: CarOwner,
               private platesService: NumberPlatesService) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class DeleteDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  deleteProduct() {
+  deleteCarOwner() {
     this.platesService.deletePlate(this.data).subscribe(res => {
       this.dialogRef.close();
     });

@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Product} from '../product';
+import {CarOwner} from '../../models/carOwner';
 import {NumberPlatesService} from '../number-plates.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class EditDialogComponent implements OnInit {
   oldData;
 
   constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Product,
+              @Inject(MAT_DIALOG_DATA) public data: CarOwner,
               private platesService: NumberPlatesService) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class EditDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  editProduct() {
+  editCarOwner() {
     this.platesService.editPlate(this.oldData, this.data).subscribe(res => {
       this.dialogRef.close();
     });

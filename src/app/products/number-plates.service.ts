@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Product} from './product';
+import {CarOwner} from '../models/carOwner';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -14,14 +14,14 @@ export class NumberPlatesService {
     return this.http.get('http://localhost:3000/getPlates');
   }
 
-  editPlate(oldProduct: Product, product: Product): Observable<any> {
-    return this.http.post('http://localhost:3000/editPlate', [oldProduct, product]);
+  editPlate(oldCarOwner: CarOwner, carOwner: CarOwner): Observable<any> {
+    return this.http.post('http://localhost:3000/editPlate', [oldCarOwner, carOwner]);
   }
-  addPlate(product: Product): Observable<any> {
-    return this.http.post('http://localhost:3000/addPlate', product);
+  addPlate(carOwner: CarOwner): Observable<any> {
+    return this.http.post('http://localhost:3000/addPlate', carOwner);
   }
 
-  deletePlate(plate: Product): Observable<any> {
+  deletePlate(plate: CarOwner): Observable<any> {
     return this.http.delete(`http://localhost:3000/deletePlate/${plate.plate}`);
   }
 }

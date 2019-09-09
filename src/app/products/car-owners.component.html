@@ -1,4 +1,4 @@
-<h1 class="h1">Number plate list</h1>
+<h1 class="h1">Car owner list</h1>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
 
@@ -11,7 +11,7 @@
            class="mat-elevation-z1">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Owner name</th>
-        <td mat-cell *matCellDef="let product"> {{product.name}}</td>
+        <td mat-cell *matCellDef="let product"> {{product.name | titlecase}}</td>
       </ng-container>
       <ng-container matColumnDef="plate">
         <th mat-header-cell *matHeaderCellDef>Number plate</th>
@@ -20,7 +20,7 @@
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef>Edit</th>
         <td mat-cell *matCellDef="let product">
-          <button mat-icon-button (click)="editProduct(product)">
+          <button mat-icon-button (click)="editCarOwner(product)">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
@@ -28,7 +28,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Delete</th>
         <td mat-cell *matCellDef="let product">
-          <button mat-icon-button (click)="deleteProduct(product)">
+          <button mat-icon-button (click)="deleteCarOwner(product)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -41,18 +41,18 @@
 
   <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
 
-  <form class="centerText" [formGroup]="carOwnerForm" (ngSubmit)="createProduct(carOwnerForm)" fxLayout="column">
+  <form class="centerText" [formGroup]="carOwnerForm" (ngSubmit)="createCarOwner(carOwnerForm)" fxLayout="column">
     <h2>Create new car owner</h2>
 
     <mat-form-field>
       <input type="text" formControlName="name" placeholder="Your name" matInput>
     </mat-form-field>
     <mat-form-field>
-      <input type="text" formControlName="plate" placeholder="Car plate like AA11AAA" matInput>
+      <input type="text" formControlName="plate" placeholder="Car plate like AA11AAA" #input matInput [value]="input.value.toUpperCase()">
     </mat-form-field>
 
     <button mat-flat-button color="primary" type="submit">Create</button>
-    <button mat-flat-button color="primary" (click)="clearProduct()">Reset</button>
+    <button mat-flat-button color="primary" (click)="clearCarOwner()">Reset</button>
   </form>
 
   <div class="loading" *ngIf="loading">

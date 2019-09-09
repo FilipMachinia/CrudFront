@@ -16,7 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
+import { CarOwnersComponent } from './products/car-owners.component';
 import {AppRoutingModule} from './app-routing.module';
 import { DeleteDialogComponent } from './products/delete-dialog/delete-dialog.component';
 import {NumberPlatesService} from './products/number-plates.service';
@@ -26,7 +26,7 @@ import { EditDialogComponent } from './products/edit-dialog/edit-dialog.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductsComponent,
+    CarOwnersComponent,
     DeleteDialogComponent,
     EditDialogComponent
   ],

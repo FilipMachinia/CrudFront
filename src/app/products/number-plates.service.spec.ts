@@ -1,7 +1,7 @@
 import {async, TestBed} from '@angular/core/testing';
 
 import {NumberPlatesService} from './number-plates.service';
-import {ProductsComponent} from './products.component';
+import {CarOwnersComponent} from './car-owners.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatDialogModule,
@@ -14,7 +14,7 @@ import {
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {Product} from './product';
+import {CarOwner} from '../models/carOwner';
 
 describe('NumberPlatesService', async () => {
   let service: NumberPlatesService;
@@ -67,7 +67,7 @@ describe('NumberPlatesService', async () => {
     });
 
     it('should addPlate', () => {
-      const dummyPlate: Product = {name: 'john', plate: 'aa11aaa'};
+      const dummyPlate: CarOwner = {name: 'john', plate: 'aa11aaa'};
       service.addPlate(dummyPlate).subscribe((res) => {
         expect(res).toEqual({name: 'john', plate: 'aa11aaa'});
       });
@@ -78,8 +78,8 @@ describe('NumberPlatesService', async () => {
     });
 
     it('should editPlate', () => {
-      const dummyOldPlate: Product = {name: 'john', plate: 'aa11aaa'};
-      const dummyNewPlate: Product = {name: 'john', plate: 'aa11bbb'};
+      const dummyOldPlate: CarOwner = {name: 'john', plate: 'aa11aaa'};
+      const dummyNewPlate: CarOwner = {name: 'john', plate: 'aa11bbb'};
       service.editPlate(dummyOldPlate, dummyNewPlate).subscribe((res) => {
         expect(res).toEqual([{name: 'john', plate: 'aa11aaa'}, {name: 'john', plate: 'aa11bbb'}]);
       });
@@ -90,7 +90,7 @@ describe('NumberPlatesService', async () => {
     });
 
     it('should deletePlate', () => {
-      const dummyPlate: Product = {name: 'john', plate: 'aa11aaa'};
+      const dummyPlate: CarOwner = {name: 'john', plate: 'aa11aaa'};
       service.deletePlate(dummyPlate).subscribe((res) => {
         expect(res).toEqual({name: 'john', plate: 'aa11aaa'});
       });

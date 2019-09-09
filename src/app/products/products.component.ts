@@ -76,7 +76,7 @@ export class ProductsComponent implements OnInit {
   getAllPlates() {
     this.loading = true;
     this.platesService.getPlates().subscribe(res => {
-      this.dataSource.data = res;
+      this.dataSource.data = this.sortCarOwners(res);
       this.table.renderRows();
       this.loading = false;
     });
@@ -84,5 +84,18 @@ export class ProductsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  sortCarOwners(array) {
+    array.sort( (a: Product, b: Product) => {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name < b.name) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    return array;
   }
 }

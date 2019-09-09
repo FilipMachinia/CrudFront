@@ -64,7 +64,7 @@ export class CarOwnersComponent implements OnInit {
   }
 
   createCarOwner(carOwnerFrm) {
-    if (carOwnerFrm.valid) {
+    if (carOwnerFrm.valid && carOwnerFrm.value.name && carOwnerFrm.value.plate) {
       this.platesService.addPlate({name: this.carOwnerForm.value.name, plate: this.carOwnerForm.value.plate}).subscribe(res => {
         this.getAllPlates();
         this.clearCarOwner();

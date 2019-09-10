@@ -129,4 +129,18 @@ describe('ProductsComponent', () => {
       expect(compiled.querySelector('table').textContent).toContain('Owner nameNumber plateEditDelete');
     });
   });
+
+  describe('test sorting', () => {
+    it('empty array sort', () => {
+      const testArr = [];
+      const arrAfterSort = [];
+      expect(component.sortCarOwners(testArr)).toEqual(arrAfterSort);
+    });
+
+    it('array sort', () => {
+      const testArr = [{name: 'john', plate: 'aa11aaa'}, {name: 'alex', plate: 'aa11ads'}, {name: 'mike', plate: 'bb22bbb'}];
+      const arrAfterSort = [{name: 'alex', plate: 'aa11ads'}, {name: 'john', plate: 'aa11aaa'}, {name: 'mike', plate: 'bb22bbb'}];
+      expect(component.sortCarOwners(testArr)).toEqual(arrAfterSort);
+    });
+  });
 });

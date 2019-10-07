@@ -4,7 +4,7 @@
 This is basic Crud app (front end only). For back end please go to `https://github.com/FilipMachinia/CrudBack`.
 
 The app uses:
-* Angular 8 with CLI (Ivy broken due to @angular/flex-layout)
+* Angular 8 with CLI + Ivy 
 * NodeJS with data saved in .json
 * Angular Material
 * RxJS

@@ -48,9 +48,9 @@
       <input type="text" formControlName="name" placeholder="Your name" matInput>
     </mat-form-field>
     <mat-form-field>
-      <input type="text" formControlName="plate" placeholder="Car plate like AA11AAA" #input matInput [value]="input.value.toUpperCase()">
+      <input type="text" [(ngModel)]="input.value" uppercase formControlName="plate" placeholder="Car plate like AA11AAA" #input matInput >
     </mat-form-field>
-
+<!--[value]="input.value.toUpperCase()"-->
     <button mat-flat-button color="primary" type="submit">Create</button>
     <button mat-flat-button color="primary" (click)="clearCarOwner()">Reset</button>
   </form>

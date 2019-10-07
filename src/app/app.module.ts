@@ -21,6 +21,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { DeleteDialogComponent } from './products/delete-dialog/delete-dialog.component';
 import {NumberPlatesService} from './products/number-plates.service';
 import { EditDialogComponent } from './products/edit-dialog/edit-dialog.component';
+import { UppercaseDirective } from './products/directives/uppercase.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditDialogComponent } from './products/edit-dialog/edit-dialog.componen
     HomeComponent,
     CarOwnersComponent,
     DeleteDialogComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    UppercaseDirective
   ],
   imports: [
     AppRoutingModule,

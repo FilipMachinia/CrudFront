@@ -32,7 +32,6 @@ export class CarOwnersComponent implements OnInit {
   ngOnInit() {
     this.getAllPlates();
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   editCarOwner(carOwner: any) {
@@ -77,6 +76,7 @@ export class CarOwnersComponent implements OnInit {
     this.platesService.getPlates().subscribe(res => {
       this.dataSource.data = this.sortCarOwners(res);
       this.table.renderRows();
+      this.dataSource.sort = this.sort;
       this.loading = false;
     });
   }

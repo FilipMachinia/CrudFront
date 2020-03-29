@@ -13,7 +13,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CarOwnersComponent implements OnInit {
   @ViewChild('plateTable', { static: true }) table: MatTable<any>;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   dataSource = new MatTableDataSource<CarOwner[]>();

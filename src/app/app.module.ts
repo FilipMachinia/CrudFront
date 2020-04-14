@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import {
-  MatButtonModule, MatDialogModule,
-  MatDividerModule, MatFormFieldModule,
-  MatIconModule, MatInputModule,
-  MatMenuModule, MatPaginatorModule,
-  MatProgressSpinnerModule, MatSortModule,
-  MatTableModule,
-  MatToolbarModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -22,6 +25,7 @@ import { DeleteDialogComponent } from './products/delete-dialog/delete-dialog.co
 import {NumberPlatesService} from './products/number-plates.service';
 import { EditDialogComponent } from './products/edit-dialog/edit-dialog.component';
 import { UppercaseDirective } from './products/directives/uppercase.directive';
+import 'hammerjs';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CarOwner} from '../models/carOwner';
 import {NumberPlatesService} from './number-plates.service';
-import {MatDialog, MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {EditDialogComponent} from './edit-dialog/edit-dialog.component';
 import {FormControl, FormGroup, Validators} from '@angular/forms';

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditDialogComponent } from './edit-dialog.component';
 import {FormsModule} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {NumberPlatesService} from '../number-plates.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 

@@ -1,10 +1,10 @@
 <div>
   <label>Owner name
-    <input type="text" [(ngModel)]="data.name">
+    <input type="text" [ngModel]="data.name | titlecase" (ngModelChange)="data.name = $event">
   </label>
 
   <label>Number plate
-    <input type="text" [(ngModel)]="data.plate">
+    <input type="text" [ngModel]="data.plate | uppercase" (ngModelChange)="data.plate = $event">
   </label>
 
   <button mat-flat-button color="primary" (click)="editCarOwner()">Edit</button>

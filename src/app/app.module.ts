@@ -25,7 +25,6 @@ import { DeleteDialogComponent } from './products/delete-dialog/delete-dialog.co
 import {NumberPlatesService} from './products/number-plates.service';
 import { EditDialogComponent } from './products/edit-dialog/edit-dialog.component';
 import { UppercaseDirective } from './products/directives/uppercase.directive';
-import 'hammerjs';
 
 @NgModule({
   declarations: [
